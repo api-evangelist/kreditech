@@ -1,0 +1,412 @@
+generated: '2026-08-23'
+method: probed
+source: https://monedo.com/
+name: Monedo (Kreditech) well-known + contract discovery probe
+description: >-
+  Negative probe record for Monedo, founded in Hamburg in 2012 as Kreditech and renamed
+  Monedo in March 2020. The company filed for insolvency in a Hamburg court in September
+  2020 and ceased operations in December 2020. BOTH of its former hosts were allowed to
+  lapse and were re-registered in 2022 by unrelated parties: monedo.com is now a GoDaddy /
+  Afternic aftermarket listing offered for sale, and kreditech.com sits behind a SiteGround
+  robot-challenge wall on a NameCheap privacy registration. Neither host is controlled by
+  the company, so nothing served from either may be attributed to Monedo. monedo.com
+  answers HTTP 200 with the SAME 114-byte HTML redirect shell for EVERY path, including
+  every /.well-known/* path and every spec path, and its DNS is a wildcard that resolves
+  api./developer./docs./app./partner. to the same parking IPs. NONE of these 200s is a
+  document. No WellKnown, SecurityTxt, AgentCard, LLMsTxt, OpenAPI, Packages or SDKs
+  pointer is emitted from this probe, and none should ever be emitted from it in a later
+  round.
+
+host_status:
+- host: monedo.com
+  controlled_by_provider: false
+  disposition: parked-for-sale
+  registrar: GoDaddy.com, LLC
+  registrant_organization: Domains By Proxy, LLC
+  domain_created: '2022-09-27'
+  domain_expires: '2026-09-27'
+  nameservers:
+  - NS1.AFTERNIC.COM
+  - NS2.AFTERNIC.COM
+  a_records:
+  - 13.248.169.48
+  - 76.223.54.146
+  mx: 'null MX (0 .)'
+  note: >-
+    Creation date 2022-09-27 is two years AFTER Monedo's September 2020 insolvency filing
+    and December 2020 shutdown, so this registration is not the company's. Root serves
+    <html><head><script>window.onload=...href="/lander"</script> and /lander 302s to
+    https://forsale.godaddy.com/forsale/monedo.com. DNS is a wildcard: every probed
+    subdomain resolves to the same two parking IPs, so a resolving api.monedo.com is
+    parking, not an API host.
+- host: kreditech.com
+  controlled_by_provider: false
+  disposition: bot-challenge-wall
+  registrar: NameCheap, Inc.
+  registrant_organization: Privacy service provided by Withheld for Privacy ehf
+  domain_created: '2022-12-10'
+  domain_expires: '2028-12-10'
+  nameservers:
+  - ns1.siteground.net
+  - ns2.siteground.net
+  a_records:
+  - 35.212.18.25
+  mx:
+  - mx10.antispam.mailspamprotection.com
+  - mx20.antispam.mailspamprotection.com
+  - mx30.antispam.mailspamprotection.com
+  note: >-
+    Creation date 2022-12-10 is also after the shutdown; NameCheap + privacy proxy +
+    SiteGround hosting, none of which matches the company's historical footprint. Every
+    path answers HTTP 202 with a ~180-byte meta-refresh to /.well-known/sgcaptcha/, and
+    that path serves a SiteGround "Robot Challenge Screen" proof-of-work interstitial.
+    We do not evade challenges. Recorded as blocked AND not-company-controlled; the
+    second fact is decisive on its own.
+
+soft_200_catch_all: true
+hit_count: 0
+soft_200_note: >-
+  Every path probed on monedo.com returned 200 with content-length 114 and content-type
+  text/html — the identical parking redirect stub, byte-identical to a nonsense control
+  path. Treat all of them as misses.
+
+soft_404_control:
+  url: https://monedo.com/zzz-no-such-path-98765
+  status: 200
+  bytes: 114
+  identical_to_root: true
+
+probes:
+- path: /.well-known/security.txt
+  url: https://monedo.com/.well-known/security.txt
+  status: 200
+  content_type: text/html
+  bytes: 114
+  document: false
+  result: miss
+  file: null
+- path: /.well-known/openid-configuration
+  url: https://monedo.com/.well-known/openid-configuration
+  status: 200
+  content_type: text/html
+  bytes: 114
+  document: false
+  result: miss
+  file: null
+- path: /.well-known/oauth-authorization-server
+  url: https://monedo.com/.well-known/oauth-authorization-server
+  status: 200
+  content_type: text/html
+  bytes: 114
+  document: false
+  result: miss
+  file: null
+- path: /.well-known/api-catalog
+  url: https://monedo.com/.well-known/api-catalog
+  status: 200
+  content_type: text/html
+  bytes: 114
+  document: false
+  result: miss
+  file: null
+- path: /.well-known/ai-plugin.json
+  url: https://monedo.com/.well-known/ai-plugin.json
+  status: 200
+  content_type: text/html
+  bytes: 114
+  document: false
+  result: miss
+  file: null
+- path: /.well-known/agent-card.json
+  url: https://monedo.com/.well-known/agent-card.json
+  status: 200
+  content_type: text/html
+  bytes: 114
+  document: false
+  result: miss
+  file: null
+  note: HTML parking shell, not a JSON AgentCard object. No AgentCard pointer emitted.
+- path: /.well-known/agent.json
+  url: https://monedo.com/.well-known/agent.json
+  status: 200
+  content_type: text/html
+  bytes: 114
+  document: false
+  result: miss
+  file: null
+  note: Legacy pre-0.3 path. HTML parking shell, not a JSON AgentCard object.
+- path: /.well-known/security.txt
+  url: https://kreditech.com/.well-known/security.txt
+  status: 202
+  content_type: text/html
+  bytes: 195
+  document: false
+  result: miss
+  file: null
+  note: SiteGround sgcaptcha meta-refresh. Same 202 on every path.
+- path: /.well-known/agent-card.json
+  url: https://kreditech.com/.well-known/agent-card.json
+  status: 202
+  content_type: text/html
+  bytes: 198
+  document: false
+  result: miss
+  file: null
+- path: /.well-known/agent.json
+  url: https://kreditech.com/.well-known/agent.json
+  status: 202
+  content_type: text/html
+  bytes: 193
+  document: false
+  result: miss
+  file: null
+- path: /.well-known/api-catalog
+  url: https://kreditech.com/.well-known/api-catalog
+  status: 202
+  content_type: text/html
+  bytes: 194
+  document: false
+  result: miss
+  file: null
+- path: /.well-known/openid-configuration
+  url: https://kreditech.com/.well-known/openid-configuration
+  status: 202
+  content_type: text/html
+  bytes: 203
+  document: false
+  result: miss
+  file: null
+- path: /.well-known/oauth-authorization-server
+  url: https://kreditech.com/.well-known/oauth-authorization-server
+  status: 202
+  content_type: text/html
+  bytes: 209
+  document: false
+  result: miss
+  file: null
+- path: /.well-known/ai-plugin.json
+  url: https://kreditech.com/.well-known/ai-plugin.json
+  status: 202
+  content_type: text/html
+  bytes: 197
+  document: false
+  result: miss
+  file: null
+
+contract_discovery:
+  openapi:
+  - url: https://monedo.com/openapi.json
+    status: 200
+    parses_as_openapi: false
+    result: miss
+  - url: https://monedo.com/openapi.yaml
+    status: 200
+    parses_as_openapi: false
+    result: miss
+  - url: https://monedo.com/swagger.json
+    status: 200
+    parses_as_openapi: false
+    result: miss
+  - url: https://monedo.com/v1/openapi.json
+    status: 200
+    parses_as_openapi: false
+    result: miss
+  - url: https://monedo.com/api-docs
+    status: 200
+    parses_as_openapi: false
+    result: miss
+  - url: https://monedo.com/docs
+    status: 200
+    parses_as_openapi: false
+    result: miss
+  - url: https://monedo.com/redoc
+    status: 200
+    parses_as_openapi: false
+    result: miss
+  - url: https://kreditech.com/openapi.json
+    status: 202
+    parses_as_openapi: false
+    result: miss
+  - url: https://kreditech.com/swagger.json
+    status: 202
+    parses_as_openapi: false
+    result: miss
+  - url: https://kreditech.com/api-docs
+    status: 202
+    parses_as_openapi: false
+    result: miss
+  - url: https://kreditech.com/docs
+    status: 202
+    parses_as_openapi: false
+    result: miss
+  graphql:
+  - url: https://monedo.com/graphql
+    status: 200
+    is_graphql: false
+    result: miss
+    note: Parking shell, not a GraphQL endpoint. Introspection not attempted.
+  - url: https://kreditech.com/graphql
+    status: 202
+    is_graphql: false
+    result: miss
+  mcp: []
+  mcp_note: >-
+    No hosted or stdio MCP server exists or could exist — the company ceased operations in
+    December 2020, five years before MCP was published. No endpoint was guessed.
+  a2a_agent_card: []
+  a2a_note: >-
+    Both canonical (/.well-known/agent-card.json) and legacy (/.well-known/agent.json)
+    paths probed on both hosts. Every response was an HTML shell or a captcha interstitial,
+    never a JSON object with AgentCard shape. NOTHING was written to a2a/.
+  wsdl: []
+  wsdl_note: No ?wsdl / ?singleWsdl surface exists; both hosts answer the same catch-all.
+  api_hosts_resolved:
+  - host: api.monedo.com
+    dns: 76.223.54.146 (wildcard parking IP)
+    status: null
+    note: TLS handshake fails; no service. Wildcard record, not a provisioned API host.
+  - host: developer.monedo.com
+    dns: 13.248.169.48 (wildcard parking IP)
+    status: null
+  - host: developers.monedo.com
+    dns: 76.223.54.146 (wildcard parking IP)
+    status: null
+  - host: docs.monedo.com
+    dns: 76.223.54.146 (wildcard parking IP)
+    status: null
+  - host: app.monedo.com
+    dns: 76.223.54.146 (wildcard parking IP)
+    status: null
+  - host: partner.monedo.com
+    dns: 76.223.54.146 (wildcard parking IP)
+    status: null
+  - host: api.kreditech.com
+    dns: NXDOMAIN
+    status: null
+  - host: developer.kreditech.com
+    dns: NXDOMAIN
+    status: null
+  - host: docs.kreditech.com
+    dns: NXDOMAIN
+    status: null
+  - host: developers.kreditech.com
+    dns: NXDOMAIN
+    status: null
+  - host: app.kreditech.com
+    dns: NXDOMAIN
+    status: null
+  wayback:
+  - url: http://archive.org/wayback/available?url=api.kreditech.com
+    archived_snapshots: none
+  - url: http://archive.org/wayback/available?url=developer.kreditech.com
+    archived_snapshots: none
+
+llms_txt:
+  url: https://monedo.com/llms.txt
+  status: 200
+  content_type: text/plain
+  bytes: 568
+  is_real_llms_txt: false
+  verbatim: |
+    # monedo.com
+
+    > monedo.com is a domain name currently listed for sale on GoDaddy's aftermarket. It is available via Buy-It-Now, Make-an-Offer, or Lease-to-Own, depending on the listing's current configuration.
+
+    ## Status
+    - For sale: Yes
+    - Listed on: GoDaddy (aftermarket)
+    - Marketplace listing: https://forsale.godaddy.com/forsale/monedo.com
+    - Escrow / transfer: GoDaddy-backed, typical 5-7 business-day completion
+
+    ## How to buy
+    - Buy It Now, Make an Offer, or Lease-to-Own options are presented on the listing page.
+    - Transactions are protected by GoDaddy escrow.
+  note: >-
+    This IS llms.txt-shaped, but it was published by the GoDaddy domain-parking system and
+    its entire subject is the sale of the domain name. It is not Monedo's document and says
+    nothing about any API. Recorded as a MISS. No LLMsTxt pointer emitted. This is the
+    clearest instance yet of a parking lander producing a well-formed artifact that a
+    naive probe would credit to a dead company.
+
+robots_txt:
+  url: https://monedo.com/robots.txt
+  status: 200
+  verbatim: |
+    User-agent: *
+    Allow: /
+    LLM-Policy: /llms.txt
+    Sitemap: /sitemap.xml
+  note: GoDaddy parking boilerplate. Crawling is not disallowed, so nothing here blocked the probe.
+
+sitemap:
+  url: https://monedo.com/sitemap.xml
+  status: 200
+  urls:
+  - https://monedo.com/lander
+  note: Single parking-lander URL. No content, no reference pages.
+
+other_surfaces:
+- what: GitHub organization
+  url: https://github.com/Kreditech
+  status: 200
+  result: hit
+  note: >-
+    Genuinely first-party — the go-cbes README carries the Kreditech logo from
+    www.kreditech.com and "(c) 2015 Kreditech". Created 2014-08-13, 5 public repositories,
+    all infrastructure tooling (go-cbes and sails-cbes Couchbase/Elasticsearch ORMs,
+    node-googleanalytics fork, slack-jira-plugin, heroku-buildpack-java). Last meaningful
+    push 2016-11-28. NONE of them is a client SDK for a Monedo/Kreditech API. Wired as
+    GitHubOrganization; deliberately NOT wired as Packages or SDKs.
+- what: GitHub organization
+  url: https://api.github.com/orgs/monedo
+  status: 404
+  result: miss
+- what: npm registry search "kreditech"
+  url: https://registry.npmjs.org/-/v1/search?text=kreditech
+  status: 200
+  result: miss
+  note: >-
+    One result, sails-cbes 0.1.16 published 2015-11-06 — the Kreditech GitHub org's
+    Couchbase/Elasticsearch adapter for Sails/Waterline. A database adapter, not an API
+    client library, so it does not satisfy sdk_count and no SDKs pointer is emitted.
+- what: npm registry search "monedo"
+  url: https://registry.npmjs.org/-/v1/search?text=monedo
+  status: 200
+  result: miss
+  note: Zero results.
+- what: PyPI
+  url: https://pypi.org/pypi/monedo/json
+  status: 404
+  result: miss
+- what: PyPI
+  url: https://pypi.org/pypi/kreditech/json
+  status: 404
+  result: miss
+- what: monedo.pl
+  url: https://monedo.pl/
+  status: 200
+  result: miss
+  note: >-
+    NOT the company. A Polish-language WordPress loan-comparison portal running Yoast SEO,
+    whose own schema.org graph gives datePublished 2023-05-25 — two and a half years after
+    Monedo shut down. It reuses the "Monedo Now" brand name of the former Polish lending
+    product and publishes no imprint or operator disclosure. Deliberately not wired as a
+    Website pointer.
+- what: Forge Global secondary-market listing (the harvest source)
+  url: https://forgeglobal.com/kreditech_stock/
+  status: 403
+  result: blocked
+  note: >-
+    Cloudflare "Just a moment..." interstitial to non-browser clients, so not confirmed
+    dead and left in place — but retyped from Website to SecondaryMarket. A trading-venue
+    share listing is not the company's web presence, and Monedo has no live web presence
+    to point at.
+
+conclusion: >-
+  Monedo marketed a business-facing Lending-as-a-Service / Credit-as-a-Service partner API
+  to retailers, telcos and payment providers, but that surface was sales-gated for its whole
+  life: no public developer portal, no reference, and no machine-readable contract was ever
+  published, and no Wayback record of api./developer. subdomains exists. The company is dead
+  and holds neither of the two hosts that carry its names. This file is a historical record,
+  not a thin profile. Any future round should re-read host_status before probing monedo.com
+  or kreditech.com again, and must not promote any 200 or 202 from either host into a hit.

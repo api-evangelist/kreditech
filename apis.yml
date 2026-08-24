@@ -1,7 +1,20 @@
 aid: kreditech
 name: Monedo
-description: 'Monedo is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: >-
+  Monedo, founded in Hamburg in 2012 as Kreditech and renamed Monedo in March 2020, was a
+  German online consumer lender that underwrote short-term and installment credit in Poland,
+  Spain, Russia, Romania, India and Mexico using a self-learning machine-learning scoring
+  engine over thousands of alternative data points instead of traditional bureau scores.
+  Backed by Peter Thiel, J.C. Flowers and Naspers, it was valued above EUR 230m in 2017. It
+  marketed a business-facing Lending-as-a-Service / Credit-as-a-Service partner API that let
+  retailers, telcos, banks and payment providers embed its credit products and point-of-sale
+  financing, but that surface was sales-gated for its whole life: the company never operated
+  a public developer portal, never published a reference, and never published a
+  machine-readable contract. Monedo filed for insolvency in a Hamburg court in September 2020
+  and ceased operations in December 2020. Both monedo.com and kreditech.com lapsed and were
+  re-registered by unrelated parties in 2022 - monedo.com is now a GoDaddy aftermarket
+  listing offered for sale - so no company-controlled web or API surface remains.
+image: https://avatars.githubusercontent.com/u/8436933?v=4
 url: https://raw.githubusercontent.com/api-evangelist/kreditech/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:secondary-market
@@ -12,6 +25,15 @@ created: '2026-08-23'
 modified: '2026-08-23'
 tags:
 - Company
+- Defunct
+- Financial-Services
+- Fintech
+- Lending
+- Consumer Credit
+- Credit Scoring
+- Machine Learning
+- Point of Sale Financing
+- Germany
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -19,5 +41,40 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
-- type: Website
+- type: SecondaryMarket
   url: https://forgeglobal.com/kreditech_stock/
+- type: GitHubOrganization
+  url: https://github.com/Kreditech
+x-enrichment:
+  date: '2026-08-23'
+  status: minimal
+  artifacts_added: 1
+  pass: local-v1
+x-coverage:
+  state: none
+  reason: defunct
+  detail: >-
+    Monedo (formerly Kreditech) filed for insolvency in Hamburg in September 2020 and ceased
+    operations that December; it no longer holds either of its own domains, and monedo.com -
+    re-registered through GoDaddy in September 2022 - now answers HTTP 200 with the same
+    114-byte parking redirect shell on every path including /openapi.json and every
+    /.well-known/ path, serves an llms.txt whose only subject is the sale of the domain
+    name, and wildcards api./developer./docs. to the same parking IPs.
+  evidence:
+  - url: https://monedo.com/
+    status: 200
+  - url: https://monedo.com/openapi.json
+    status: 200
+  - url: https://monedo.com/.well-known/agent-card.json
+    status: 200
+  - url: https://monedo.com/llms.txt
+    status: 200
+  - url: https://kreditech.com/
+    status: 202
+  - url: https://api.github.com/orgs/monedo
+    status: 404
+  - url: https://github.com/Kreditech
+    status: 200
+  - url: https://forgeglobal.com/kreditech_stock/
+    status: 403
+  checked: '2026-08-23'

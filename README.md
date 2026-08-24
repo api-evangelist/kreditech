@@ -64,5 +64,20 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Monedo is a company surfaced via the API Evangelist harvest backlog (source: secondary-market) and added to the network as a stub for full-pipeline profiling.
-- https://forgeglobal.com/kreditech_stock/
+Monedo, founded in Hamburg in 2012 as Kreditech and renamed Monedo in March 2020, was a German
+online consumer lender that underwrote short-term and installment credit in Poland, Spain, Russia,
+Romania, India and Mexico using a self-learning machine-learning scoring engine over thousands of
+alternative data points rather than traditional bureau scores. It marketed a business-facing
+Lending-as-a-Service / Credit-as-a-Service partner API to retailers, telcos, banks and payment
+providers, but that surface was sales-gated for its whole life — no public developer portal, no
+published reference, and no machine-readable contract.
+
+Monedo filed for insolvency in a Hamburg court in September 2020 and ceased operations in December
+2020. Both `monedo.com` and `kreditech.com` lapsed and were re-registered by unrelated parties in
+2022; `monedo.com` is now a GoDaddy aftermarket listing offered for sale and answers HTTP 200 with
+the same 114-byte parking shell on every path. Nothing served from either host may be attributed to
+the company. See [`well-known/kreditech-well-known.yml`](well-known/kreditech-well-known.yml) for the
+full probe record.
+
+- Forge Global secondary-market listing (harvest source): https://forgeglobal.com/kreditech_stock/
+- GitHub organization (first-party, last push 2016): https://github.com/Kreditech
