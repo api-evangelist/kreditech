@@ -14,6 +14,17 @@ description: >-
   and ceased operations in December 2020. Both monedo.com and kreditech.com lapsed and were
   re-registered by unrelated parties in 2022 - monedo.com is now a GoDaddy aftermarket
   listing offered for sale - so no company-controlled web or API surface remains.
+deliveryModel:
+  model: unknown
+  open_source: false
+  commercial: false
+  callable_host: false
+  label: Delivery model not determined — needs a product licence on record
+  confidence: low
+  source:
+  - none
+  generated: '2026-08-28'
+  method: derived
 image: https://avatars.githubusercontent.com/u/8436933?v=4
 url: https://raw.githubusercontent.com/api-evangelist/kreditech/refs/heads/main/apis.yml
 x-type: company
