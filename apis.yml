@@ -35,12 +35,12 @@ modified: '2026-09-15'
 tags:
 - Company
 - Defunct
-- Financial-Services
+- Financial Services
 - Fintech
 - Lending
 - Consumer Credit
 - Credit Scoring
-- Machine-Learning
+- Machine Learning
 - Point of Sale Financing
 - Germany
 tags_raw:
@@ -54,6 +54,7 @@ tags_raw:
 - Machine Learning
 - Point of Sale Financing
 - Germany
+- Machine-Learning
 apis: []
 maintainers:
 - FN: Kin Lane
