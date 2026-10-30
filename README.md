@@ -64,20 +64,34 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Monedo, founded in Hamburg in 2012 as Kreditech and renamed Monedo in March 2020, was a German
-online consumer lender that underwrote short-term and installment credit in Poland, Spain, Russia,
-Romania, India and Mexico using a self-learning machine-learning scoring engine over thousands of
-alternative data points rather than traditional bureau scores. It marketed a business-facing
-Lending-as-a-Service / Credit-as-a-Service partner API to retailers, telcos, banks and payment
-providers, but that surface was sales-gated for its whole life — no public developer portal, no
-published reference, and no machine-readable contract.
+> **No longer operating.** This company or product has shut down, been discontinued, or been deprecated. This profile is kept as a historical record and is not maintained or rated.
 
-Monedo filed for insolvency in a Hamburg court in September 2020 and ceased operations in December
-2020. Both `monedo.com` and `kreditech.com` lapsed and were re-registered by unrelated parties in
-2022; `monedo.com` is now a GoDaddy aftermarket listing offered for sale and answers HTTP 200 with
-the same 114-byte parking shell on every path. Nothing served from either host may be attributed to
-the company. See [`well-known/kreditech-well-known.yml`](well-known/kreditech-well-known.yml) for the
-full probe record.
+Monedo, founded in Hamburg in 2012 as Kreditech and renamed Monedo in March 2020, was a German online consumer lender that underwrote short-term and installment credit in Poland, Spain, Russia, Romania, India and Mexico using a self-learning machine-learning scoring engine over thousands of alternative data points instead of traditional bureau scores. Backed by Peter Thiel, J.C. Flowers and Naspers, it was valued above EUR 230m in 2017. It marketed a business-facing Lending-as-a-Service / Credit-as-a-Service partner API that let retailers, telcos, banks and payment providers embed its credit products and point-of-sale financing, but that surface was sales-gated for its whole life: the company never operated a public developer portal, never published a reference, and never published a machine-readable contract. Monedo filed for insolvency in a Hamburg court in September 2020 and ceased operations in December 2020. Both monedo.com and kreditech.com lapsed and were re-registered by unrelated parties in 2022 - monedo.com is now a GoDaddy aftermarket listing offered for sale - so no company-controlled web or API surface remains.
 
-- Forge Global secondary-market listing (harvest source): https://forgeglobal.com/kreditech_stock/
-- GitHub organization (first-party, last push 2016): https://github.com/Kreditech
+**Areas:** Company · Defunct · Financial Services · Fintech · Lending · Consumer Credit · Credit Scoring · Machine Learning · Point of Sale Financing · Germany
+
+## Monedo on APIs.io (historical record)
+
+Everything profiled for Monedo is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/kreditech/](https://apis.io/providers/kreditech/)** — or go straight to one of the APIs or properties below.
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [GitHub](https://github.com/Kreditech)
+
+## API Evangelist rating
+
+**Not rated** — this company is recorded as no longer operating, so no score is published. If it is in fact operating, say so on this repository and it will be re-profiled.
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Monedo: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/kreditech/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
